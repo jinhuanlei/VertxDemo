@@ -1,6 +1,7 @@
 package FuturePractice;
 
 import io.vertx.core.Future;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class FutureWithComposeDemo {
@@ -29,7 +30,7 @@ public class FutureWithComposeDemo {
         })
       .onSuccess(
         result -> {
-          System.out.println("succeeded end.");
+          System.out.println("succeeded end. result: " + result);
         })
       .onFailure(
         error -> {
@@ -41,9 +42,9 @@ public class FutureWithComposeDemo {
     try {
       System.out.println("Do some shit.");
       TimeUnit.MILLISECONDS.sleep(count * 1000);
-      if (Math.random() < 0.7) {
-        return Future.failedFuture("Bad Luck");
-      }
+//      if (Math.random() < 0.7) {
+//        return Future.failedFuture("Bad Luck");
+//      }
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
